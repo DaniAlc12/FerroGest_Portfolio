@@ -1,6 +1,7 @@
 package ferrogest.vista;
 
 import ferrogest.controller.GestorFerroviario;
+import ferrogest.dao.ConexionBD;
 import ferrogest.exceptions.CapacidadExcedidaException;
 import ferrogest.exceptions.MercanciaInvalidaException;
 import ferrogest.models.TrenMercancias;
@@ -13,6 +14,7 @@ import java.util.Scanner;
 public class Main {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
+        ConexionBD.conectar();
         GestorFerroviario gf = new GestorFerroviario();
         boolean salir = false;
         int opcion;
