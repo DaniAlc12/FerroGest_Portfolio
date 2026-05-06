@@ -1,17 +1,25 @@
 package ferrogest.controller;
 
+import ferrogest.dao.TrenDAO;
 import ferrogest.exceptions.CapacidadExcedidaException;
 import ferrogest.models.Tren;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GestorFerroviario {
-    private Map<String, Tren> listaTrenes;
+    private Map<String, Tren> listaTrenes = new HashMap<>();
+    private TrenDAO trenDAO =  new TrenDAO();
 
     public GestorFerroviario() {
-        listaTrenes = new HashMap<>();
+
+        List<Tren> trenesGuardados = trenDAO.leerTrenes();
+
+        for(Tren t : trenesGuardados){
+            listaTrenes.put(t.getId(), t);
+        }
     }
 
     public boolean isIdUnique(String id) {
@@ -24,6 +32,7 @@ public class GestorFerroviario {
 
     public void registrarTren(Tren t) {
         listaTrenes.put(t.getId(), t);
+        trenDAO.insertarTren(t);
     }
 
     public void procesarCarga(String idTren, double cantidad) throws CapacidadExcedidaException {
@@ -49,18 +58,6 @@ public class GestorFerroviario {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaFichero));) {
             String auditoriaTexto = generarInformeAuditoria();
             bw.write(auditoriaTexto);
-        }
-    }
-
-    public void guardarEstadoSistema(String rutaFichero) throws IOException {
-        try (ObjectOutputStream escribiendo_estado = new ObjectOutputStream(new FileOutputStream(rutaFichero));) {
-            escribiendo_estado.writeObject(listaTrenes);
-        }
-    }
-
-    public void cargarEstadoSistema(String rutaFichero) throws ClassNotFoundException, IOException {
-        try (ObjectInputStream recuperando_estado = new ObjectInputStream(new FileInputStream(rutaFichero));) {
-            listaTrenes = (Map<String,Tren>) recuperando_estado.readObject();
         }
     }
 

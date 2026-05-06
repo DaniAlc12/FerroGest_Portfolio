@@ -44,4 +44,6 @@ public class TrenMercancias extends Tren{
     public void setTipoMercancia(String tipoMercancia) {
         this.tipoMercancia = tipoMercancia;
     }
+
+
 }

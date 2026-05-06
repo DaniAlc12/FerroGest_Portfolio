@@ -27,9 +27,7 @@ public class Main {
             System.out.println("2. Registrar Tren de Mercancias");
             System.out.println("3. Cargar Tren");
             System.out.println("4. Guardar Auditoria");
-            System.out.println("5. Guardar Estado");
-            System.out.println("6. Cargar Estado");
-            System.out.println("7. Salir");
+            System.out.println("5. Salir");
             System.out.print("Por favor, elige una opción: ");
 
             try {
@@ -102,24 +100,6 @@ public class Main {
                         }
                         break;
                     case 5:
-                        System.out.println("\n--> Has elegido Guardar Estado");
-                        System.out.println();
-                        try{
-                            gf.guardarEstadoSistema("auditoriaTrenes.dat");
-                        } catch (IOException e) {
-                            System.out.println("[!] Error de archivo: " + e.getMessage());
-                        }
-                        break;
-                    case 6:
-                        System.out.println("\n--> Has elegido Cargar Estado");
-                        System.out.println();
-                        try{
-                            gf.cargarEstadoSistema("auditoriaTrenes.dat");
-                        } catch (IOException | ClassNotFoundException e) {
-                            System.out.println("[!] Error de archivo: " + e.getMessage());
-                        }
-                        break;
-                    case 7:
                         System.out.println("\n--> Saliendo del programa... ¡Hasta pronto!");
                         salir = true;
                         break;
