@@ -1,11 +1,11 @@
 package ferrogest.vista;
 
-import ferrogest.controller.GestorFerroviario;
+import ferrogest.core.GestorFerroviario;
 import ferrogest.dao.ConexionBD;
 import ferrogest.exceptions.CapacidadExcedidaException;
 import ferrogest.exceptions.MercanciaInvalidaException;
-import ferrogest.models.TrenMercancias;
-import ferrogest.models.TrenPasajeros;
+import ferrogest.domain.TrenMercancias;
+import ferrogest.domain.TrenPasajeros;
 
 import java.io.IOException;
 import java.util.InputMismatchException;

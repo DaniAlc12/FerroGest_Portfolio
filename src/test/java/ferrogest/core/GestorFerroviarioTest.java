@@ -1,9 +1,9 @@
-package ferrogest.controller;
+package ferrogest.core;
 
 import ferrogest.exceptions.CapacidadExcedidaException;
 import ferrogest.exceptions.MercanciaInvalidaException;
-import ferrogest.models.TrenMercancias;
-import ferrogest.models.TrenPasajeros;
+import ferrogest.domain.TrenMercancias;
+import ferrogest.domain.TrenPasajeros;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

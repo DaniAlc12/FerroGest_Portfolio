@@ -1,8 +1,8 @@
 package ferrogest.dao;
 import ferrogest.exceptions.MercanciaInvalidaException;
-import ferrogest.models.Tren;
-import ferrogest.models.TrenMercancias;
-import ferrogest.models.TrenPasajeros;
+import ferrogest.domain.Tren;
+import ferrogest.domain.TrenMercancias;
+import ferrogest.domain.TrenPasajeros;
 
 import java.sql.*;
 import java.util.ArrayList;
